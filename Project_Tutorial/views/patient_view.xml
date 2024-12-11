@@ -15,6 +15,10 @@
                 <filter name="filter_male" string="Male" domain="[('gender','=','male')]"/>
                 <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
                 <filter name="filter_other" string="Others" domain="[('gender','=','other')]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Patient Name" name="patient_name" context="{'group_by':'name'}"/>
+                    <filter string="Gender" name="gender" context="{'group_by':'gender'}"/>
+                </group>
             </search>
         </field>
     </record>
