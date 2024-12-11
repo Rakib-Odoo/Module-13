@@ -12,3 +12,9 @@ class HospitalDoctor(models.Model):
     ], string='Gender')
     note = fields.Text(string='Description')
     image = fields.Binary(string='Image')
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super(HospitalDoctor, self).default_get(fields_list)
+        res['note'] = 'New Doctor Created'
+        return res
