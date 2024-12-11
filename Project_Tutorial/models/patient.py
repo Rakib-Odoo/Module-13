@@ -12,3 +12,4 @@ class HospitalPatient(models.Model):
         ('other', 'Other'),
     ], required=True, default='male')
     note = fields.Text(string='Description')
+    image = fields.Binary(string='Image')

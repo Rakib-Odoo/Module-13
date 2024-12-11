@@ -1,7 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-     <!-- search view for patient model -->
+    <record id="view_patient_menu_kanban" model="ir.ui.view">
+        <field name="name">hospital.patient.kanban</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="note"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="oe_kanban_image">
+                                        <img t-att-src="kanban_image('hospital.patient','image',record.id.raw_value)"
+                                             alt="avatar" class="o_image_64_contain"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="oe_kanban_details">
+                                        <ul>
+                                            <li>
+                                                <h3>
+                                                    <field name="name"/>
+                                                </h3>
+                                            </li>
+                                            <li>
+                                                <strong>Age :</strong>
+                                                <field name="age"/>
+                                            </li>
+                                            <li>
+                                                <strong>Gender :</strong>
+                                                <field name="gender"/>
+                                            </li>
+                                            <li>
+                                                <strong>Description :</strong>
+                                                <field name="note"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- search view for patient model -->
     <record id="view_patient_menu_search" model="ir.ui.view">
         <field name="name">hospital.patient.search</field>
         <field name="model">hospital.patient</field>
@@ -23,7 +74,7 @@
         </field>
     </record>
 
-     <!-- tree view for patient model -->
+    <!-- tree view for patient model -->
     <record id="view_patient_menu_tree" model="ir.ui.view">
         <field name="name">hospital.patient.tree</field>
         <field name="model">hospital.patient</field>
@@ -45,6 +96,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <field name="image" widget="image" class="avatar"/>
                     <group>
                         <group>
                             <field name="name"/>
@@ -64,7 +116,7 @@
     <record id="view_patient_menu" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hospital.patient</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
         <field name="type">ir.actions.act_window</field>
         <field name="context">{}</field>
         <field name="help" type="html">
