@@ -20,6 +20,7 @@
         'views/kids_view.xml',
         'views/appointment.xml',
         'views/doctor_view.xml',
+        'views/male_doctors.xml',
     ],
     'demo': [],
     'qweb': [],

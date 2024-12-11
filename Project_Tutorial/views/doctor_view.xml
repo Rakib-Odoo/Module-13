@@ -108,6 +108,6 @@
               name="Doctors Info"
               parent="doctor_root"
               action="view_doctor_menu"
-              sequence="0"/>
+              sequence="1"/>
 
 </odoo>

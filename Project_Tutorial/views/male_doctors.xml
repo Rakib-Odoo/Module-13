@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_male_doctor" model="ir.actions.act_window">
+        <field name="name">Male Doctors</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{'default_gender':'male'}</field>
+        <field name="domain">[('gender','=','male')]</field>
+        <field name="help" type="html">
+            <p>
+                Create a new male doctor here!!!!!!!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="male_doctor"
+              name="Male Doctors"
+              parent="doctor_root"
+              action="view_male_doctor"
+              sequence="2"/>
+
+</odoo>
