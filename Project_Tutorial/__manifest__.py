@@ -21,6 +21,7 @@
         'views/appointment.xml',
         'views/doctor_view.xml',
         'views/male_doctors.xml',
+        'views/female_doctor.xml',
     ],
     'demo': [],
     'qweb': [],
