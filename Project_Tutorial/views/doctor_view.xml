@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="view_doctor_menu_kanban" model="ir.ui.view">
+        <field name="name">hospital.doctor.kanban</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="note"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="oe_kanban_image">
+                                        <img t-att-src="kanban_image('hospital.doctor','image',record.id.raw_value)"
+                                             alt="avatar" class="o_image_64_contain"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="oe_kanban_details">
+                                        <ul>
+                                            <li>
+                                                <h3>
+                                                    <field name="name"/>
+                                                </h3>
+                                            </li>
+                                            <li>
+                                                <strong>
+                                                    Age :
+                                                </strong>
+                                                <field name="age"/>
+                                            </li>
+                                            <li>
+                                                <strong>
+                                                    Gender :
+                                                </strong>
+                                                <field name="gender"/>
+                                            </li>
+                                            <li>
+                                                <strong>
+                                                    Description :
+                                                </strong>
+                                                <field name="note"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="view_doctor_menu_tree" model="ir.ui.view">
         <field name="name">hospital.doctor.tree</field>
         <field name="model">hospital.doctor</field>
@@ -39,7 +96,7 @@
     <record id="view_doctor_menu" model="ir.actions.act_window">
         <field name="name">Doctors Info</field>
         <field name="res_model">hospital.doctor</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
         <field name="help" type="html">
             <p>
                 Create a new doctor here!!!!!!!
