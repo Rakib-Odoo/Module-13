@@ -80,6 +80,7 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sl"/>
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -96,7 +97,12 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <field name="image" widget="image" class="avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sl"/>
+                        </h1>
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar"/>
                     <group>
                         <group>
                             <field name="name"/>
