@@ -1,0 +1,15 @@
+<odoo>
+    <record id="action_kids_menu" model="ir.actions.act_window">
+        <field name="name">Kids</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+       <field name="domain">[('age', '&lt;', 12)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first kids!
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_kids" name="Kids" parent="menu_patient_root" action="action_kids_menu" sequence="20"/>
+</odoo>
