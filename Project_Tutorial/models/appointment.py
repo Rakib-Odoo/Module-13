@@ -8,3 +8,9 @@ class HospitalAppointment(models.Model):
     date_appointment = fields.Date(string="Appointment Date", default=fields.Date.context_today, required=True)
     date_checkup = fields.Datetime(string="Check Up Time", required=True)
     prescription = fields.Text(string="Prescription")
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super(HospitalAppointment, self).default_get(fields_list)
+        res['note'] = 'New Appointment Created'
+        return res
