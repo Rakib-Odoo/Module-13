@@ -19,6 +19,7 @@
         'views/female_patient_view.xml',
         'views/kids_view.xml',
         'views/appointment.xml',
+        'views/doctor_view.xml',
     ],
     'demo': [],
     'qweb': [],

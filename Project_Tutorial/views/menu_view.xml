@@ -13,4 +13,9 @@
               name="Appointments Details"
               parent="hospital_root_menu"
               sequence="0"/>
+
+    <menuitem id="doctor_root"
+              name="Doctors Details"
+              parent="hospital_root_menu"
+              sequence="0"/>
 </odoo>
