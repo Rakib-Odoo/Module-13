@@ -36,7 +36,7 @@
     </record>
 
     <record id="view_appointment_details_menu" model="ir.actions.act_window">
-        <field name="name">Appointments Information</field>
+        <field name="name">Appointments Info</field>
         <field name="res_model">hospital.appointment</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
@@ -47,7 +47,7 @@
     </record>
 
     <menuitem id="appointment_details_menu"
-              name="Appointments Information"
+              name="Appointments Info"
               parent="appointment_menu"
               action="view_appointment_details_menu"
               sequence="0"/>

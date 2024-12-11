@@ -5,6 +5,6 @@ class HospitalAppointment(models.Model):
     _description = 'Hospital Appointment Information'
 
     note = fields.Text(string='Description')
-    date_appointment = fields.Date(string="Date")
-    date_checkup = fields.Datetime(string="Check Up Time")
+    date_appointment = fields.Date(string="Date", default=fields.Date.context_today, required=True)
+    date_checkup = fields.Datetime(string="Check Up Time", required=True)
     prescription = fields.Text(string="Prescription")
