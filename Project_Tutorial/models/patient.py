@@ -13,3 +13,9 @@ class HospitalPatient(models.Model):
     ], required=True, default='male')
     note = fields.Text(string='Description')
     image = fields.Binary(string='Image')
+
+    @api.model
+    def default_get(self, fields):
+        res = super(HospitalPatient,self).default_get(fields)
+        res['note'] = 'New Patient Created'
+        return res
