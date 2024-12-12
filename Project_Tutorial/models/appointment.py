@@ -4,12 +4,13 @@ from odoo import api, fields, models, _
 class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Hospital Appointment Information'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    patient_id = fields.Many2one('hospital.patient', string='Name', required=True)
-    doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
+    patient_id = fields.Many2one('hospital.patient', string='Name', required=True, tracking=True)
+    doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True, tracking=True)
     note = fields.Text(string='Description', default='New Appointment Created')
-    date_appointment = fields.Date(string="Appointment Date", default=fields.Date.context_today, required=True)
-    date_checkup = fields.Datetime(string="Check Up Time", required=True, default=fields.Datetime.now)
+    date_appointment = fields.Date(string="Appointment Date", default=fields.Date.context_today, required=True, tracking=True)
+    date_checkup = fields.Datetime(string="Check Up Time", required=True, default=fields.Datetime.now, tracking=True)
     prescription = fields.Text(string="Prescription")
 
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),
