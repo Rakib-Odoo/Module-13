@@ -12,6 +12,22 @@ class HospitalAppointment(models.Model):
     date_checkup = fields.Datetime(string="Check Up Time", required=True, default=fields.Datetime.now)
     prescription = fields.Text(string="Prescription")
 
+    state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirmed'),
+                              ('done', 'Done'), ('cancel', 'Cancelled')], default='draft',
+                             string="Status")
+
+    def action_draft(self):
+        self.state = 'draft'
+
+    def action_confirm(self):
+        self.state = 'confirm'
+
+    def action_done(self):
+        self.state = 'done'
+
+    def action_cancel(self):
+        self.state = 'cancel'
+
     sl = fields.Char(string='SL NO', required=True, copy=False, readonly=True, index=True,
                      default=lambda self: _('New'))
 

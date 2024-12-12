@@ -71,6 +71,7 @@
                 <field name="note"/>
                 <field name="date_checkup"/>
                 <field name="prescription"/>
+                <field name="state"/>
             </tree>
         </field>
     </record>
@@ -80,6 +81,13 @@
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_draft" string="Draft" type="object" class="oe_highlight"/>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_done" string="Marks As Done" type="object" class="oe_highlight"/>
+                    <button name="action_cancel" string="Cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <h1>
