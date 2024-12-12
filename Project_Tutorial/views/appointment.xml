@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="view_appointment_details_menu_search" model="ir.ui.view">
+        <field name="name">hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="sl"/>
+                <field name="patient_id" string="patient name"/>
+                <field name="date_appointment"/>
+                <field name="note"/>
+                <field name="date_checkup"/>
+                <field name="prescription"/>
+            </search>
+        </field>
+    </record>
+
     <record id="view_appointment_details_menu_kanban" model="ir.ui.view">
         <field name="name">hospital.appointment.kanban</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <kanban>
                 <field name="sl"/>
+                <field name="patient_id"/>
                 <field name="date_appointment"/>
                 <field name="note"/>
                 <field name="date_checkup"/>
@@ -20,6 +36,10 @@
                                         <h3>
                                             <field name="sl"/>
                                         </h3>
+                                    </li>
+                                    <li>
+                                        <strong>Patient Name :</strong>
+                                        <field name="patient_id"/>
                                     </li>
                                     <li>
                                         <strong>Appointment Date :</strong>
