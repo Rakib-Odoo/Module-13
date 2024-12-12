@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record id="view_appointment_details_menu_kanban" model="ir.ui.view">
+        <field name="name">hospital.appointment.kanban</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="sl"/>
+                <field name="date_appointment"/>
+                <field name="note"/>
+                <field name="date_checkup"/>
+                <field name="prescription"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        <h3>
+                                            <field name="sl"/>
+                                        </h3>
+                                    </li>
+                                    <li>
+                                        <strong>Appointment Date :</strong>
+                                        <field name="date_appointment"/>
+                                    </li>
+                                    <li>
+                                        <strong>Checkup Date :</strong>
+                                        <field name="date_checkup"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <record id="view_appointment_details_menu_tree" model="ir.ui.view">
         <field name="name">hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="sl"/>
                 <field name="date_appointment"/>
                 <field name="note"/>
                 <field name="date_checkup"/>
@@ -43,7 +81,7 @@
     <record id="view_appointment_details_menu" model="ir.actions.act_window">
         <field name="name">Appointments Info</field>
         <field name="res_model">hospital.appointment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,kanban,form</field>
         <field name="help" type="html">
             <p>
                 Create a new appointment!!!!!
