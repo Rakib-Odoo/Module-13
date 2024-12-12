@@ -1,4 +1,5 @@
 from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class HospitalAppointment(models.Model):
@@ -45,3 +46,32 @@ class HospitalAppointment(models.Model):
         if 'prescription' in fields:  # Ensure the 'prescription' field exists in the fields list
             res['prescription'] = 'New Prescription Created'
         return res
+
+    # @api.constrains('note','prescription')
+    # def _check_note_prescription(self):
+    #     for rec in self:
+    #         if rec.note == rec.prescription:
+    #             raise ValidationError("Description value and Prescription value same")
+
+    # @api.constrains('note', 'prescription')
+    # def _check_note_prescription(self):
+    #     for rec in self:
+    #         if rec.note and rec.prescription and rec.note.strip() == rec.prescription.strip():
+    #             raise ValidationError(
+    #                 _("The 'Description' and 'Prescription' values must be different. "
+    #                   "You provided:\n- Description: '%s'\n- Prescription: '%s'.\n"
+    #                   "Please ensure they are distinct.") %
+    #                 (rec.note, rec.prescription)
+    #             )
+
+    @api.constrains('note', 'prescription')
+    def _check_note_prescription(self):
+        for rec in self:
+            # Ensure both fields are not empty
+            if rec.note and rec.prescription and rec.note.strip() == rec.prescription.strip():
+                raise ValidationError(_(
+                    "The 'Description' value and 'Prescription' value cannot be the same.\n\n"
+                    "- Description: %s\n"
+                    "- Prescription: %s\n\n"
+                    "Please provide different values for these fields."
+                ) % (rec.note, rec.prescription))
