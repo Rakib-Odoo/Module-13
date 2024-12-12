@@ -6,6 +6,7 @@ class HospitalAppointment(models.Model):
     _description = 'Hospital Appointment Information'
 
     patient_id = fields.Many2one('hospital.patient', string='Name', required=True)
+    doctor_id = fields.Many2one('hospital.doctor', string='Doctor', required=True)
     note = fields.Text(string='Description', default='New Appointment Created')
     date_appointment = fields.Date(string="Appointment Date", default=fields.Date.context_today, required=True)
     date_checkup = fields.Datetime(string="Check Up Time", required=True, default=fields.Datetime.now)

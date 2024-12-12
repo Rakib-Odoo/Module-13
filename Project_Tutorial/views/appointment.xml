@@ -8,6 +8,7 @@
             <search>
                 <field name="sl"/>
                 <field name="patient_id" string="patient name"/>
+                <field name="doctor_id"/>
                 <field name="date_appointment"/>
                 <field name="note"/>
                 <field name="date_checkup"/>
@@ -65,6 +66,7 @@
             <tree>
                 <field name="sl"/>
                 <field name="patient_id"/>
+                <field name="doctor_id"/>
                 <field name="date_appointment"/>
                 <field name="note"/>
                 <field name="date_checkup"/>
@@ -91,6 +93,7 @@
                             <field name="note"/>
                         </group>
                         <group>
+                            <field name="doctor_id" placeholder="Doctor Name"/>
                             <field name="date_checkup"/>
                             <field name="prescription"/>
                         </group>
