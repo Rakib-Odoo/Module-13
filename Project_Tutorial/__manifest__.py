@@ -9,7 +9,7 @@
     'maintainer': 'Fahim Hasan',
     'license': 'AGPL-3',
     'depends': [
-
+        'mail',
     ],
     'data': [
         'security/ir.model.access.csv',
